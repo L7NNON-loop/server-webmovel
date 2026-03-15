@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: telegram-automation-api
+    env: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: API_KEY
+        sync: false
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: TELEGRAM_API_ID
+        sync: false
+      - key: TELEGRAM_API_HASH
+        sync: false
+      - key: SESSION_STORE_PATH
+        value: data/sessions.json
+      - key: AUTOMATION_STORE_PATH
+        value: data/automation.json
+      - key: RATE_LIMIT_MAX
+        value: 100
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 60000
